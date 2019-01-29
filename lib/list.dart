@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './home.dart';
+import './login.dart';
 
 
 class ListPage extends StatefulWidget {
@@ -30,12 +32,36 @@ class _ListPageState extends State<ListPage> {
            ListTile(
             leading: CircleAvatar(backgroundImage: AssetImage('assets/d.jpg'), radius: 50,),
             title: Text("Music Player", style: TextStyle(fontSize: 30, color: Colors.lightGreen),),
-           )
+           ),
+          RaisedButton(
+            shape:BeveledRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0)
+              
+            ),
+            child: Text("Log Out", style: TextStyle(fontSize:30, color: Colors.redAccent),),
+            onPressed:(){
+              Navigator.pushReplacement(context, MaterialPageRoute(
+                builder: (BuildContext contex)=>LoginPage()
+              ));
+            } ,
+          )
          ],
        ),
-      
+       
 
       ),
+      floatingActionButton:FloatingActionButton(
+        child: Icon(Icons.music_note),
+        backgroundColor: Colors.grey,
+        
+        
+        onPressed: (){
+         Navigator.pushReplacement(context, MaterialPageRoute(
+           builder: (BuildContext context)=>Home()
+         ));
+        },
+      ),
+        
       ),
       
       
@@ -45,4 +71,3 @@ class _ListPageState extends State<ListPage> {
   }
   
 }
-//kir
