@@ -44,6 +44,7 @@ class _HomeState extends State<Home> {
 
       );
      }
+
    }
 
   @override
@@ -63,6 +64,11 @@ class _HomeState extends State<Home> {
       drawer: Drawer(
         elevation: 2.0,
         child: _buildDrawer(context),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.favorite),
+        foregroundColor: Colors.red,
+        backgroundColor: Colors.black38,
       ),
     );
   }
@@ -120,7 +126,8 @@ ListTile(
       ));
     },
   ),
-)
+),
+ 
  
 
 
