@@ -35,14 +35,17 @@ class _ListPageState extends State<ListPage> {
            ),
           RaisedButton(
             shape:BeveledRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0)
+              borderRadius: BorderRadius.circular(10.0),
+              
               
             ),
+            
             child: Text("Log Out", style: TextStyle(fontSize:30, color: Colors.redAccent),),
             onPressed:(){
               Navigator.pushReplacement(context, MaterialPageRoute(
                 builder: (BuildContext contex)=>LoginPage()
               ));
+              
             } ,
           )
          ],

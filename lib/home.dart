@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import './list.dart';
 import './login.dart';
+import './fav.dart';
 
 
 void main() {
@@ -69,6 +70,11 @@ class _HomeState extends State<Home> {
         child: Icon(Icons.favorite),
         foregroundColor: Colors.red,
         backgroundColor: Colors.black38,
+        onPressed:(){
+          Navigator.pushReplacement(context, MaterialPageRoute(
+            builder: (BuildContext context)=>FavPage()
+          ));
+        },
       ),
     );
   }
@@ -77,11 +83,13 @@ Widget _buildDrawer(BuildContext  context)
 {
   return ListView(children: <Widget>[
 DrawerHeader(
+  
   decoration: BoxDecoration(
     color: Colors.lightGreen,
 
   ),
   child: ListView(
+    
     children: <Widget>[
       new Text("Welcome"),
      
@@ -107,7 +115,7 @@ ListTile(
   leading: Icon(Icons.list),
   title: Text("List"),
   onTap: (){
-   // Navigator.push(context, rout)
+   
     Navigator.pushReplacement(
       context, MaterialPageRoute(
       builder: (BuildContext context)=>ListPage()
