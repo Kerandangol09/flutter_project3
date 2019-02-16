@@ -2,11 +2,21 @@ import 'package:flutter/material.dart';
 import './home.dart';
 
 
-class LoginPage extends StatelessWidget {
+
+class LoginPage extends StatefulWidget {
+  
+  
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final String background ="assets/a.jpg";
+  String text="";
+  String text1="";
+  bool showProgress=false;
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -21,6 +31,8 @@ class LoginPage extends StatelessWidget {
           padding: EdgeInsets.all(20.0),
           child: Column(
             children: <Widget>[
+              Text("$text"),
+
               SizedBox(height: 30.0),
                TextField(
                  decoration: InputDecoration(
@@ -28,8 +40,14 @@ class LoginPage extends StatelessWidget {
                    hintText: "Email Address",
                    prefixIcon: Icon(Icons.alternate_email),
                    fillColor: Colors.white70,
-                   filled: true
+                   filled: true,
+              
                  ),
+                 onChanged: (value){
+                   setState(() {
+                    text=value; 
+                   });
+                 },
                ),
                SizedBox(height:20.0),
                TextField(
@@ -41,6 +59,11 @@ class LoginPage extends StatelessWidget {
                    fillColor: Colors.white70,
                    filled: true
                  ),
+                 onChanged: (value){
+                   setState(() {
+                    text1=value; 
+                   });
+                 },
                ),
                    SizedBox(height:20.0),
                    SizedBox(
@@ -49,9 +72,13 @@ class LoginPage extends StatelessWidget {
                        padding: EdgeInsets.symmetric(vertical:10.0),
                        color: Theme.of(context).primaryColor,
                        onPressed: (){
+                         if (text=="kas143@gmail.com"&&text1=="123456") {
+                           
+                         
                          Navigator.pushReplacement(context, MaterialPageRoute(
                            builder: (BuildContext contex)=>Home()
                          ));
+                         }
                        },
                        child:Text('Login', style: TextStyle(
                          color:Colors.white,
@@ -66,5 +93,9 @@ class LoginPage extends StatelessWidget {
       ),
       
     );
+
+      
+      
+    
   }
 }
